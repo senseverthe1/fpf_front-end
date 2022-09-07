@@ -1,0 +1,37 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <mat-nav-list class="nav-list">
+        <a mat-list-item routerLink="/">
+            <i class="material-icons">
+                home
+            </i>
+            Home
+        </a>
+        <a mat-list-item routerLink="/products">
+            <i class="material-icons">
+                storefront
+            </i>
+            Products
+        </a>
+    </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+        
+      <button type="button" mat-button (click)="showFiller = !showFiller" (click)="drawer.toggle()">
+        <p *ngIf="showFiller" >
+            <span class="material-icons">
+            keyboard_arrow_left
+            </span>
+        </p>
+        <p *ngIf="!showFiller">
+            <span class="material-icons">
+            keyboard_arrow_right
+            </span>
+        </p>
+      </button>
+      <router-outlet></router-outlet>
+    </div>
+  
+  </mat-drawer-container>
+  

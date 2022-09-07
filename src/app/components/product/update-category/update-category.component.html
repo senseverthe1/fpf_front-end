@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title class="title">Edit Category</mat-card-title>
+    <form>
+        <mat-form-field class="input">
+            <input matInput placeholder="Id"
+            [(ngModel)]="category.id" name="id" disabled>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <input matInput placeholder="Category Name"
+            [(ngModel)]="category.category_name" name="category_name">
+        </mat-form-field>
+    </form>
+    
+    <div class="buttons">
+        <button mat-raised-button (click)="updateCategory()" color="primary"> Edit </button>
+        <button mat-raised-button (click)="cancel()" class="cancel"> Cancel </button>
+    </div>
+    </mat-card>
+

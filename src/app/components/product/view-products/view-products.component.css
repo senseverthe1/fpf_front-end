@@ -1,0 +1,25 @@
+table{
+    width: 100%
+}
+
+i.edit{
+    color: #d9cd26;
+}
+
+i.delete{
+    margin-left: 5px;
+    color: #e35e6b;
+    cursor: pointer;
+}
+
+.filter{
+    margin-right: 25px;
+}
+
+.search-container{
+    float: right;
+}
+
+.b_cat{
+    margin-left: 15px
+}

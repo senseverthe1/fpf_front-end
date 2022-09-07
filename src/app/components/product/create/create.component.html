@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-title class="title">New Product</mat-card-title>
+    <form>
+        <mat-form-field class="input">
+            <input matInput placeholder="Name"
+            [(ngModel)]="product.name" name="nome">
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <input matInput placeholder="Description"
+            [(ngModel)]="product.description" name="descricao">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="product.category">
+              <mat-option>None</mat-option>
+              <mat-option [value]="option.id" *ngFor="let option of category">{{ option.category_name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <input matInput placeholder="Price"
+            [(ngModel)]="product.price" name="preco">
+        </mat-form-field>
+    </form>
+    <div class="buttons">
+        <button mat-raised-button (click)="createProduct()" color="primary">Create</button>
+        <button mat-raised-button (click)="cancel()">Cancel</button>
+    </div>
+</mat-card>
+
