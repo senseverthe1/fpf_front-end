@@ -46,7 +46,6 @@ export class ViewProductsComponent implements OnInit {
     });
 
   dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.productService.read().subscribe(products => {
         this.dataSource = new MatTableDataSource(products)
         this.dataSource.paginator = this.paginator
@@ -65,7 +64,7 @@ export class ViewProductsComponent implements OnInit {
   }
 
   filter(cat: any): void{
-    this.productService.readF(cat).subscribe(products => {
+    this.productService.readProdCat(cat).subscribe(products => {
       this.dataSource = new MatTableDataSource(products)
       this.dataSource.paginator = this.paginator
       this.dataSource.sort = this.matSort

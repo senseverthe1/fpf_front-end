@@ -42,6 +42,9 @@ export class UpdateProductComponent implements OnInit {
     }
 
   updateProduct(): void{
+    if(this.product.category == undefined){
+      this.product.category = NaN
+    }
     this.productService.update(this.product).subscribe(() => {
       this.productService.showMessage("Product successfully updated!");
       this.router.navigate(["/products"]);

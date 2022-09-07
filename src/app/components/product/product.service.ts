@@ -31,7 +31,7 @@ export class ProductService {
     return this.http.get<Product[]>(this.baseUrl)
   }
 
-  readF(id: string): Observable<Product[]>{
+  readProdCat(id: string): Observable<Product[]>{
     const url = `${this.baseUrl}?categoria=${id}`
     return this.http.get<Product[]>(url)
   }
