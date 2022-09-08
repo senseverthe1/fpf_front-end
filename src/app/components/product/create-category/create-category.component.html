@@ -1,9 +1,9 @@
 <mat-card>
     <mat-card-title class="title">Create Category</mat-card-title>
-    <form>
+    <form [formGroup]="momentForm" #formDir="ngForm">
         <mat-form-field class="input">
             <input matInput placeholder="Category Name"
-            [(ngModel)]="category.category_name" name="category_name">
+            [(ngModel)]="category.category_name" name="category_name" formControlName="category_name" required>
         </mat-form-field>
     </form>
     <div class="buttons">

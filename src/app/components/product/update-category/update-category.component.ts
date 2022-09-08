@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../product.model';
 import { ProductService } from '../product.service';
@@ -9,6 +10,8 @@ import { ProductService } from '../product.service';
   styleUrls: ['./update-category.component.css']
 })
 export class UpdateCategoryComponent implements OnInit {
+
+  momentForm!: FormGroup;
 
   category: Category = {
     id: 0,
@@ -31,9 +34,23 @@ export class UpdateCategoryComponent implements OnInit {
         })
       }
     );
+
+    
+    this.momentForm = new FormGroup({
+      category_name: new FormControl('', [Validators.required]),
+    })
+  }
+
+
+  get category_name(){
+    return this.momentForm.get('category_name')!
   }
 
   updateCategory(): void{
+    if(this.momentForm.invalid){
+      this.productService.showMessage('All fields must be filled!')
+      return;
+    }
     this.productService.updateCat(this.category).subscribe(() => {
       this.productService.showMessage("Category updated successfully!");
       this.router.navigate(["/products"]);

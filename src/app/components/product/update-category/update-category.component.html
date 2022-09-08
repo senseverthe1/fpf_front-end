@@ -1,14 +1,10 @@
 <mat-card>
     <mat-card-title class="title">Edit Category</mat-card-title>
-    <form>
-        <mat-form-field class="input">
-            <input matInput placeholder="Id"
-            [(ngModel)]="category.id" name="id" disabled>
-        </mat-form-field>
+    <form [formGroup]="momentForm" #formDir="ngForm">
 
         <mat-form-field class="input">
             <input matInput placeholder="Category Name"
-            [(ngModel)]="category.category_name" name="category_name">
+            [(ngModel)]="category.category_name" name="category_name" formControlName="category_name" required>
         </mat-form-field>
     </form>
     
